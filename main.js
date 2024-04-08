@@ -1,5 +1,16 @@
 let rotationAngle = 10;
-const opacityBackground = 0.1;
+let opacityBackground = 0.1;
+let counter1 = 0;
+
+function opacityLower() {
+  if (counter1 === 0) {
+    counter1 = 1;
+    opacityBackground = 1;
+  } else if (counter1 === 1) {
+    counter1 = 0;
+    opacityBackground = 0.1;
+  }
+}
 
 function rotateBackground() {
   document.body.style.backgroundImage = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 2000 1500'%3E%3Cdefs%3E%3Ccircle stroke='%2315FF05' vector-effect='non-scaling-stroke' id='a' fill='none' stroke-width='7' r='315'/%3E%3Cuse id='f' href='%23a' stroke-dasharray='100 100 100 9999' opacity='${opacityBackground}' /%3E%3Cuse id='b' href='%23a' stroke-dasharray='250 250 250 250 250 9999' opacity='${opacityBackground}' /%3E%3Cuse id='e' href='%23a' stroke-dasharray='1000 500 1000 500 9999' opacity='${opacityBackground}' /%3E%3Cuse id='g' href='%23a' stroke-dasharray='1500 9999' opacity='${opacityBackground}' /%3E%3Cuse id='h' href='%23a' stroke-dasharray='2000 500 500 9999' opacity='${opacityBackground}' /%3E%3Cuse id='j' href='%23a' stroke-dasharray='800 800 800 800 800 9999' opacity='${opacityBackground}' /%3E%3Cuse id='k' href='%23a' stroke-dasharray='1200 1200 1200 1200 1200 9999' opacity='${opacityBackground}' /%3E%3Cuse id='l' href='%23a' stroke-dasharray='1600 1600 1600 1600 1600 9999' opacity='${opacityBackground}' /%3E%3C/defs%3E%3Cg transform='translate(1000 750)' %3E%3Cg transform='rotate(${rotationAngle} 0 0)' %3E%3Ccircle fill='' r='10'/%3E%3Cg %3E%3Cuse href='%23f' transform='scale(.1) rotate(50 0 0)' /%3E%3Cuse href='%23f' transform='scale(0.2) rotate(${
@@ -9,6 +20,7 @@ function rotateBackground() {
   } 0 0)'/%3E%3Cuse href='%23j' transform='scale(2.9) rotate(90 0 0)'/%3E%3Cuse href='%23k' transform='scale(3.1) rotate(135 0 0)'/%3E%3Cuse href='%23k' transform='scale(3.2) rotate(180 0 0)'/%3E%3C/g%3E%3Cuse href='%23k' transform='scale(3.3) rotate(225 0 0)'/%3E%3Cuse href='%23k' transform='scale(3.5) rotate(270 0 0)'/%3E%3Cuse href='%23k' transform='scale(3.6) rotate(315 0 0)'/%3E%3Cuse href='%23k' transform='scale(3.7)'/%3E%3Cuse href='%23k' transform='scale(3.9) rotate(75 0 0)'/%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`;
 
   rotationAngle += 0.5;
+  console.log(opacityBackground);
 
   requestAnimationFrame(rotateBackground);
 }
