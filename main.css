@@ -4,5 +4,11 @@ body {
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: cover;
-  min-height: 200vh;
+}
+
+body {
+  min-height: 130vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
