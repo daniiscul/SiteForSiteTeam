@@ -116,7 +116,7 @@ const navLinkMain = document.querySelector(".nav-link-hover-check-main");
 
 navLinkMain.addEventListener("mouseenter", () => {
   backgroundState = true;
-  increaseBackgroundOpacity = 0.001;
+  increaseBackgroundOpacity = 0.001; // the BASE SPEED that elements use
 });
 
 navLinkMain.addEventListener("mouseleave", () => {
@@ -132,21 +132,24 @@ function easeInOutCubic(t) {
 function adjustOpacity() {
   const ease = easeInOutCubic(3); // Calculate easing value based on frame count
 
+  // 1 : 11.5 --> 1 is the speed when you hover over it, so it's 1 * 0.001 (BASE SPEED), and when you are not hovering over it 11.5 is the speed at which it decreases
+  // we need the right one to be bigger because otherwise it would be a wave effect where as now its an effect where it lights up from the middle outwards,
+  //and it closes from the outer ring inwards (this gives it a charge-like effect)
   opacityBackground1 +=
-    increaseBackgroundOpacity * (backgroundState ? 1 : 11.5) * ease;
+    increaseBackgroundOpacity * (backgroundState ? 1 : 11.5) * ease; // most outer ring
   opacityBackground2 +=
     increaseBackgroundOpacity * (backgroundState ? 2.5 : 10) * ease;
   opacityBackground3 +=
-    increaseBackgroundOpacity * (backgroundState ? 4 : 8.5) * ease;
+    increaseBackgroundOpacity * (backgroundState ? 2.5 : 8.5) * ease;
   opacityBackground4 +=
     increaseBackgroundOpacity * (backgroundState ? 8 : 7) * ease;
   opacityBackground5 += increaseBackgroundOpacity * 7 * ease;
   opacityBackground6 +=
-    increaseBackgroundOpacity * (backgroundState ? 8.5 : 7) * ease;
+    increaseBackgroundOpacity * (backgroundState ? 8 : 7) * ease;
   opacityBackground7 +=
-    increaseBackgroundOpacity * (backgroundState ? 10 : 7) * ease;
+    increaseBackgroundOpacity * (backgroundState ? 8 : 7) * ease;
   opacityBackground8 +=
-    increaseBackgroundOpacity * (backgroundState ? 11.5 : 7) * ease;
+    increaseBackgroundOpacity * (backgroundState ? 10 : 7) * ease; // the most inner ring
 
   // Ensure opacity values stay within the range [0.1, 0.9]
   opacityBackground1 = Math.max(0.1, Math.min(0.5, opacityBackground1));
