@@ -32,7 +32,7 @@ function easeInOutCubic(t) {
 function adjustOpacity() {
   const ease = easeInOutCubic(3); // Calculate easing value based on frame count
 
-  // 1 : 11.5 --> 1 is the speed when you hover over it, so it's 1 * 0.001 (BASE SPEED), and when you are not hovering over it 11.5 is the speed at which it decreases
+  // 1 : 11.5 --> 1 is the speed when you hover over it, so it's 1 * 0.001 (BASE SPEED), and when you are not hovering over it, 11.5 is the speed at which it decreases
   // we need the right one to be bigger because otherwise it would be a wave effect where as now its an effect where it lights up from the middle outwards,
   //and it closes from the outer ring inwards (this gives it a charge-like effect)
   opacityBackground1 +=
