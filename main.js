@@ -169,11 +169,12 @@ function updateBackground() {
     rotationAngle * -2
   } 0 0)'/%3E%3Cuse href='%23j' transform='scale(2.9) rotate(90 0 0)'/%3E%3Cuse href='%23k' transform='scale(3.1) rotate(135 0 0)'/%3E%3Cuse href='%23k' transform='scale(3.2) rotate(180 0 0)'/%3E%3C/g%3E%3Cuse href='%23k' transform='scale(3.3) rotate(225 0 0)'/%3E%3Cuse href='%23k' transform='scale(3.5) rotate(270 0 0)'/%3E%3Cuse href='%23k' transform='scale(3.6) rotate(315 0 0)'/%3E%3Cuse href='%23k' transform='scale(3.7)'/%3E%3Cuse href='%23k' transform='scale(3.9) rotate(75 0 0)'/%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`;
 
+  //rotation speed
   rotationAngle += 1;
 
-  if (frameCount % 6 === 0) {
+  // this updates the opacity every 3 frames
+  if (frameCount % 3 === 0) {
     adjustOpacity();
-    console.log(opacityBackground8);
   }
 
   frameCount++;
