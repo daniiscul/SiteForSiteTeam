@@ -52,14 +52,14 @@ function adjustOpacity() {
     increaseBackgroundOpacity * (backgroundState ? 10 : 7) * ease; // the most inner ring
 
   // Ensure opacity values stay within the range [0.1, 0.9]
-  opacityBackground1 = Math.max(0.1, Math.min(0.5, opacityBackground1));
-  opacityBackground2 = Math.max(0.1, Math.min(0.5, opacityBackground2));
-  opacityBackground3 = Math.max(0.1, Math.min(0.5, opacityBackground3));
+  opacityBackground1 = Math.max(0.1, Math.min(0.2, opacityBackground1));
+  opacityBackground2 = Math.max(0.1, Math.min(0.3, opacityBackground2));
+  opacityBackground3 = Math.max(0.1, Math.min(0.4, opacityBackground3));
   opacityBackground4 = Math.max(0.1, Math.min(0.5, opacityBackground4));
-  opacityBackground5 = Math.max(0.1, Math.min(0.5, opacityBackground5));
-  opacityBackground6 = Math.max(0.1, Math.min(0.5, opacityBackground6));
-  opacityBackground7 = Math.max(0.1, Math.min(0.5, opacityBackground7));
-  opacityBackground8 = Math.max(0.1, Math.min(0.5, opacityBackground8));
+  opacityBackground5 = Math.max(0.1, Math.min(0.6, opacityBackground5));
+  opacityBackground6 = Math.max(0.1, Math.min(0.7, opacityBackground6));
+  opacityBackground7 = Math.max(0.1, Math.min(0.8, opacityBackground7));
+  opacityBackground8 = Math.max(0.1, Math.min(0.9, opacityBackground8));
 }
 
 function updateBackground() {
