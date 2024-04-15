@@ -1,4 +1,3 @@
-  
 let rotationAngle = 10;
 let opacityBackground8 = 0.1;
 let opacityBackground7 = 0.1;
@@ -17,12 +16,12 @@ const navLinkMain = document.querySelector(".nav-link-hover-check-main");
 
 navLinkMain.addEventListener("mouseenter", () => {
   backgroundState = true;
-  increaseBackgroundOpacity = 0.001;
+  increaseBackgroundOpacity = 0.0001; // the BASE SPEED that elements use
 });
 
 navLinkMain.addEventListener("mouseleave", () => {
   backgroundState = false;
-  increaseBackgroundOpacity = -0.001;
+  increaseBackgroundOpacity = -0.0001;
 });
 
 // Easing function
@@ -33,31 +32,34 @@ function easeInOutCubic(t) {
 function adjustOpacity() {
   const ease = easeInOutCubic(3); // Calculate easing value based on frame count
 
+  // 1 : 11.5 --> 1 is the speed when you hover over it, so it's 1 * 0.001 (BASE SPEED), and when you are not hovering over it, 11.5 is the speed at which it decreases
+  // we need the right one to be bigger because otherwise it would be a wave effect where as now its an effect where it lights up from the middle outwards,
+  //and it closes from the outer ring inwards (this gives it a charge-like effect)
   opacityBackground1 +=
-    increaseBackgroundOpacity * (backgroundState ? 1 : 11.5) * ease;
+    increaseBackgroundOpacity * (backgroundState ? 1 : 11.5) * ease; // most outer ring
   opacityBackground2 +=
     increaseBackgroundOpacity * (backgroundState ? 2.5 : 10) * ease;
   opacityBackground3 +=
-    increaseBackgroundOpacity * (backgroundState ? 4 : 8.5) * ease;
+    increaseBackgroundOpacity * (backgroundState ? 2.5 : 8.5) * ease;
   opacityBackground4 +=
     increaseBackgroundOpacity * (backgroundState ? 8 : 7) * ease;
   opacityBackground5 += increaseBackgroundOpacity * 7 * ease;
   opacityBackground6 +=
-    increaseBackgroundOpacity * (backgroundState ? 8.5 : 7) * ease;
+    increaseBackgroundOpacity * (backgroundState ? 8 : 7) * ease;
   opacityBackground7 +=
-    increaseBackgroundOpacity * (backgroundState ? 10 : 7) * ease;
+    increaseBackgroundOpacity * (backgroundState ? 8 : 7) * ease;
   opacityBackground8 +=
-    increaseBackgroundOpacity * (backgroundState ? 11.5 : 7) * ease;
+    increaseBackgroundOpacity * (backgroundState ? 10 : 7) * ease; // the most inner ring
 
   // Ensure opacity values stay within the range [0.1, 0.9]
-  opacityBackground1 = Math.max(0.1, Math.min(0.5, opacityBackground1));
-  opacityBackground2 = Math.max(0.1, Math.min(0.5, opacityBackground2));
-  opacityBackground3 = Math.max(0.1, Math.min(0.5, opacityBackground3));
+  opacityBackground1 = Math.max(0.1, Math.min(0.2, opacityBackground1));
+  opacityBackground2 = Math.max(0.1, Math.min(0.3, opacityBackground2));
+  opacityBackground3 = Math.max(0.1, Math.min(0.4, opacityBackground3));
   opacityBackground4 = Math.max(0.1, Math.min(0.5, opacityBackground4));
-  opacityBackground5 = Math.max(0.1, Math.min(0.5, opacityBackground5));
-  opacityBackground6 = Math.max(0.1, Math.min(0.5, opacityBackground6));
-  opacityBackground7 = Math.max(0.1, Math.min(0.5, opacityBackground7));
-  opacityBackground8 = Math.max(0.1, Math.min(0.5, opacityBackground8));
+  opacityBackground5 = Math.max(0.1, Math.min(0.6, opacityBackground5));
+  opacityBackground6 = Math.max(0.1, Math.min(0.7, opacityBackground6));
+  opacityBackground7 = Math.max(0.1, Math.min(0.8, opacityBackground7));
+  opacityBackground8 = Math.max(0.1, Math.min(0.9, opacityBackground8));
 }
 
 function updateBackground() {
@@ -67,11 +69,12 @@ function updateBackground() {
     rotationAngle * -2
   } 0 0)'/%3E%3Cuse href='%23j' transform='scale(2.9) rotate(90 0 0)'/%3E%3Cuse href='%23k' transform='scale(3.1) rotate(135 0 0)'/%3E%3Cuse href='%23k' transform='scale(3.2) rotate(180 0 0)'/%3E%3C/g%3E%3Cuse href='%23k' transform='scale(3.3) rotate(225 0 0)'/%3E%3Cuse href='%23k' transform='scale(3.5) rotate(270 0 0)'/%3E%3Cuse href='%23k' transform='scale(3.6) rotate(315 0 0)'/%3E%3Cuse href='%23k' transform='scale(3.7)'/%3E%3Cuse href='%23k' transform='scale(3.9) rotate(75 0 0)'/%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`;
 
+  //rotation speed
   rotationAngle += 1;
 
-  if (frameCount % 6 === 0) {
+  // this updates the opacity every 1 frames but can be modified for later use
+  if (frameCount % 1 === 0) {
     adjustOpacity();
-    console.log(opacityBackground8);
   }
 
   frameCount++;
