@@ -11,17 +11,36 @@ let counter1 = 0;
 let increaseBackgroundOpacity = 0;
 let backgroundState = false;
 let frameCount = 0;
+let opacityLimiter = 1;
 
 const navLinkMain = document.querySelector(".nav-link-hover-check-main");
 
 navLinkMain.addEventListener("mouseenter", () => {
   backgroundState = true;
   increaseBackgroundOpacity = 0.0001; // the BASE SPEED that elements use
+  opacityLimiter = 1;
 });
 
 navLinkMain.addEventListener("mouseleave", () => {
   backgroundState = false;
   increaseBackgroundOpacity = -0.0001;
+  opacityLimiter = 1;
+});
+
+const navLinks = document.querySelectorAll(".nav-link-hover-check");
+
+navLinks.forEach((link) => {
+  link.addEventListener("mouseenter", () => {
+    backgroundState = true;
+    increaseBackgroundOpacity = 0.0001; // the BASE SPEED that elements use
+    opacityLimiter = 0.5;
+  });
+
+  link.addEventListener("mouseleave", () => {
+    backgroundState = false;
+    increaseBackgroundOpacity = -0.0001;
+    opacityLimiter = 0.5;
+  });
 });
 
 // Easing function
@@ -30,7 +49,7 @@ function easeInOutCubic(t) {
 }
 
 function adjustOpacity() {
-  const ease = easeInOutCubic(3); // Calculate easing value based on frame count
+  const ease = easeInOutCubic(3.5); // Calculate easing value based on frame count
 
   // 1 : 11.5 --> 1 is the speed when you hover over it, so it's 1 * 0.001 (BASE SPEED), and when you are not hovering over it, 11.5 is the speed at which it decreases
   // we need the right one to be bigger because otherwise it would be a wave effect where as now its an effect where it lights up from the middle outwards,
@@ -52,14 +71,38 @@ function adjustOpacity() {
     increaseBackgroundOpacity * (backgroundState ? 10 : 7) * ease; // the most inner ring
 
   // Ensure opacity values stay within the range [0.1, 0.9]
-  opacityBackground1 = Math.max(0.1, Math.min(0.2, opacityBackground1));
-  opacityBackground2 = Math.max(0.1, Math.min(0.3, opacityBackground2));
-  opacityBackground3 = Math.max(0.1, Math.min(0.4, opacityBackground3));
-  opacityBackground4 = Math.max(0.1, Math.min(0.5, opacityBackground4));
-  opacityBackground5 = Math.max(0.1, Math.min(0.6, opacityBackground5));
-  opacityBackground6 = Math.max(0.1, Math.min(0.7, opacityBackground6));
-  opacityBackground7 = Math.max(0.1, Math.min(0.8, opacityBackground7));
-  opacityBackground8 = Math.max(0.1, Math.min(0.9, opacityBackground8));
+  opacityBackground1 = Math.max(
+    0.1,
+    Math.min(0.2 * opacityLimiter, opacityBackground1)
+  );
+  opacityBackground2 = Math.max(
+    0.1,
+    Math.min(0.3 * opacityLimiter, opacityBackground2)
+  );
+  opacityBackground3 = Math.max(
+    0.1,
+    Math.min(0.4 * opacityLimiter, opacityBackground3)
+  );
+  opacityBackground4 = Math.max(
+    0.1,
+    Math.min(0.5 * opacityLimiter, opacityBackground4)
+  );
+  opacityBackground5 = Math.max(
+    0.1,
+    Math.min(0.6 * opacityLimiter, opacityBackground5)
+  );
+  opacityBackground6 = Math.max(
+    0.1,
+    Math.min(0.7 * opacityLimiter, opacityBackground6)
+  );
+  opacityBackground7 = Math.max(
+    0.1,
+    Math.min(0.8 * opacityLimiter, opacityBackground7)
+  );
+  opacityBackground8 = Math.max(
+    0.1,
+    Math.min(0.9 * opacityLimiter, opacityBackground8)
+  );
 }
 
 function updateBackground() {
