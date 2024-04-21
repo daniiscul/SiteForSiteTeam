@@ -1,72 +1,8 @@
-.contact-sq {
-  width: 78.125vw;
-  height: 46.296vh;
-  background-color: #5356ff;
-  position: fixed;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 100;
-  opacity: 90%;
-  top: 20%; /* Adjust this value to position the <div> element lower on the page */
-  right: 0;
-  bottom: 0;
-  left: 0;
-  margin: auto;
-  border: 2px solid #a0c2ff;
-  border-radius: 10px;
-  transition: width 0.6s, height 0.6s;
+.wrapper-contact {
+  height: 30vh;
+  width: 70vw;
+  border: 2px solid white;
 }
 
-.contact-sq:hover {
-  width: 90vw; /* Adjust this value to expand the width of the <div> element */
-  height: 60vh; /* Adjust this value to expand the height of the <div> element */
-}
-
-.contact-sq h1 {
-  font-size: xx-large;
-  position: absolute; /* Add this line to enable positioning */
-  top: 10px; /* Add this line to move the <h1> element down from the top edge of the <div> element */
-  left: 10px; /* Add this line to move the <h1> element to the right from the left edge of the <div> element */
-  margin: 0;
-  color: #dff5ff;
-}
-
-.contact-sq p {
-  font-size: x-large;
-  position: absolute;
-  top: 120px; /* Adjust this value to position the <p> element more or less to the top as needed */
-  left: 10px;
-  margin: 0;
-  display: block;
-  margin-top: 30px;
-  margin-left: 150px;
-  color: #dff5ff;
-}
-
-.contact-sq2 p {
-  position: absolute;
-  top: 270px; /* Adjust this value to position the <p> element more or less to the top as needed */
-  margin: 0;
-  display: block;
-  margin-top: 30px;
-  margin-left: 150px;
-  color: #dff5ff;
-}
-.contact-sq3 p {
-  position: absolute;
-  top: 270px; /* Adjust this value to position the <p> element more or less to the top as needed */
-  margin: 0;
-  display: block;
-  margin-top: 30px;
-  margin-left: 310px;
-  color: #dff5ff;
-}
-
-.contact-sq-content a {
-  display: block; /* Add this line to make the <a> element a block-level element */
-  width: 100%; /* Add this line to make the <a> element take up the full width of its parent element */
-  height: 100%; /* Add this line to make the <a> element take up the full height of its parent element */
-  text-decoration: none; /* Add this line to remove the default underline of the <a> element */
-  color: #dff5ff; /* Add this line to change the color of the <a> element */
+.body {
 }
