@@ -1,8 +1,29 @@
-.wrapper-contact {
-  height: 30vh;
-  width: 70vw;
-  border: 2px solid white;
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.body {
+.wrapper-contact {
+  height: 40vh;
+  width: 70vw;
+  border: 2px solid white;
+  background-color: #5356ff;
+  padding-left: 5vw;
+  color: #dff5ff;
+}
+
+h1 {
+  font-size: clamp(1rem, 4vh, 4rem);
+}
+
+.wrapper-contact li,
+.wrapper-contact a {
+  color: #dff5ff;
+  font-size: clamp(0.5rem, 2.5vh, 3rem);
+  margin-top: 2vh;
+}
+
+ul {
+  margin-top: 5vh;
 }
